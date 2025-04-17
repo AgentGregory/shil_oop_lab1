@@ -5,49 +5,48 @@ namespace shil_oop_lab1
 {
     public partial class Form1 : Form
     {
-        private SortContext<int> _sorter = new();
-        private List<int> _data = new();
-        private readonly Random _random = new();
+        private SortContext<int> sorter = new();
+        private List<int> data = new();
+        private readonly Random random = new();
         public Form1()
         {
             InitializeComponent();
+            comboBoxAlgorithm.Items.Add(new CocktailSort<int>());
+            comboBoxAlgorithm.Items.Add(new InsertionSort<int>());
+            comboBoxAlgorithm.Items.Add(new RadixSort());
         }
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            _data = Enumerable.Range(0, 50).Select(_ => _random.Next(100)).ToList();
+            data = Enumerable.Range(0, 50).Select(_ => random.Next(100)).ToList();
             UpdateChart();
         }
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            string? selectedAlgorithm = comboBoxAlgorithm.SelectedItem?.ToString();
+            var selectedAlgorithm = comboBoxAlgorithm.SelectedItem as ISortStrategy<int>;
 
-            ISortStrategy<int> strategy;
-
-            if (selectedAlgorithm == "Cocktail")
+           /* if (selectedAlgorithm == "Cocktail")
                 strategy = new CocktailSort<int>();
             else if (selectedAlgorithm == "Insertion")
                 strategy = new InsertionSort<int>();
             else if (selectedAlgorithm == "Radix")
                 strategy = new RadixSort();
             else
-                throw new InvalidOperationException("Неизвестный алгоритм сортировки");
+                throw new InvalidOperationException();
+           */
+            sorter.SetStrategy(selectedAlgorithm);
 
-            _sorter.SetStrategy(strategy);
-            bool ascending = radioButtonAscending.Checked;
+            bool ascending = checkBox.Checked;
 
-            var stopwatch = Stopwatch.StartNew();
-            _data = _sorter.Sort(_data, ascending).ToList();
-            stopwatch.Stop();
+            data = sorter.Sort(data, ascending).ToList();
 
-            labelTime.Text = $"Time: {stopwatch.ElapsedMilliseconds} ms";
             UpdateChart();
         }
 
         private void UpdateChart()
         {
             formsPlot1.Plot.Clear();
-            formsPlot1.Plot.Add.Bars(_data.Select((v, i) => (double)v).ToArray());
+            formsPlot1.Plot.Add.Bars(data.Select((v, i) => (double)v).ToArray());
             formsPlot1.Refresh();
         }
     }

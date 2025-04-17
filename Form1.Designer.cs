@@ -32,23 +32,24 @@
             buttonGenerate = new Button();
             buttonSort = new Button();
             comboBoxAlgorithm = new ComboBox();
-            labelTime = new Label();
-            radioButtonAscending = new RadioButton();
+            checkBox = new CheckBox();
             SuspendLayout();
             // 
             // formsPlot1
             // 
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(12, 12);
+            formsPlot1.Location = new Point(14, 16);
+            formsPlot1.Margin = new Padding(3, 4, 3, 4);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(776, 318);
+            formsPlot1.Size = new Size(887, 424);
             formsPlot1.TabIndex = 0;
             // 
             // buttonGenerate
             // 
-            buttonGenerate.Location = new Point(55, 336);
+            buttonGenerate.Location = new Point(63, 448);
+            buttonGenerate.Margin = new Padding(3, 4, 3, 4);
             buttonGenerate.Name = "buttonGenerate";
-            buttonGenerate.Size = new Size(75, 23);
+            buttonGenerate.Size = new Size(86, 31);
             buttonGenerate.TabIndex = 1;
             buttonGenerate.Text = "Generate";
             buttonGenerate.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // buttonSort
             // 
-            buttonSort.Location = new Point(136, 336);
+            buttonSort.Location = new Point(155, 448);
+            buttonSort.Margin = new Padding(3, 4, 3, 4);
             buttonSort.Name = "buttonSort";
-            buttonSort.Size = new Size(75, 23);
+            buttonSort.Size = new Size(86, 31);
             buttonSort.TabIndex = 2;
             buttonSort.Text = "Sort";
             buttonSort.UseVisualStyleBackColor = true;
@@ -67,44 +69,34 @@
             // comboBoxAlgorithm
             // 
             comboBoxAlgorithm.FormattingEnabled = true;
-            comboBoxAlgorithm.Items.AddRange(new object[] { "Cocktail", "Insertion", "Radix" });
-            comboBoxAlgorithm.Location = new Point(217, 337);
+            comboBoxAlgorithm.Location = new Point(248, 449);
+            comboBoxAlgorithm.Margin = new Padding(3, 4, 3, 4);
             comboBoxAlgorithm.Name = "comboBoxAlgorithm";
-            comboBoxAlgorithm.Size = new Size(121, 23);
+            comboBoxAlgorithm.Size = new Size(138, 28);
             comboBoxAlgorithm.Sorted = true;
             comboBoxAlgorithm.TabIndex = 3;
             // 
-            // labelTime
+            // checkBox
             // 
-            labelTime.AutoSize = true;
-            labelTime.Location = new Point(492, 336);
-            labelTime.Name = "labelTime";
-            labelTime.Size = new Size(33, 15);
-            labelTime.TabIndex = 4;
-            labelTime.Text = "Time";
-            // 
-            // radioButtonAscending
-            // 
-            radioButtonAscending.AutoSize = true;
-            radioButtonAscending.Location = new Point(354, 340);
-            radioButtonAscending.Name = "radioButtonAscending";
-            radioButtonAscending.Size = new Size(81, 19);
-            radioButtonAscending.TabIndex = 5;
-            radioButtonAscending.TabStop = true;
-            radioButtonAscending.Text = "Ascending";
-            radioButtonAscending.UseVisualStyleBackColor = true;
+            checkBox.AutoSize = true;
+            checkBox.Location = new Point(413, 452);
+            checkBox.Name = "checkBox";
+            checkBox.Size = new Size(90, 24);
+            checkBox.TabIndex = 5;
+            checkBox.Text = "direction";
+            checkBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(radioButtonAscending);
-            Controls.Add(labelTime);
+            ClientSize = new Size(914, 600);
+            Controls.Add(checkBox);
             Controls.Add(comboBoxAlgorithm);
             Controls.Add(buttonSort);
             Controls.Add(buttonGenerate);
             Controls.Add(formsPlot1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -117,7 +109,6 @@
         private Button buttonGenerate;
         private Button buttonSort;
         private ComboBox comboBoxAlgorithm;
-        private Label labelTime;
-        private RadioButton radioButtonAscending;
+        private CheckBox checkBox;
     }
 }
