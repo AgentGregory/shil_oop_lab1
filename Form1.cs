@@ -13,7 +13,7 @@ namespace shil_oop_lab1
             InitializeComponent();
             comboBoxAlgorithm.Items.Add(new CocktailSort<int>());
             comboBoxAlgorithm.Items.Add(new InsertionSort<int>());
-            comboBoxAlgorithm.Items.Add(new RadixSort());
+            comboBoxAlgorithm.Items.Add(new QwertS());
         }
         private void buttonGenerate_Click(object sender, EventArgs e)
         {

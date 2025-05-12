@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shil_oop_lab1
 {
-    public class RadixSort : ISortStrategy<int>
+    public class QwertS : ISortStrategy<int>
     {
         public IEnumerable<int> Sort(IEnumerable<int> collection, bool ascending)
         {
